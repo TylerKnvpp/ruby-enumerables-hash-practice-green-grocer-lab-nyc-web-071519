@@ -80,5 +80,5 @@ def apply_clearance(cart)
     end
   end
 #return cart
-  new_cart
+  my_cart
 end
