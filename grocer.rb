@@ -98,10 +98,11 @@ def checkout(cart, coupons)
         #total = the sum of the clearance_cart value :price mutliplied by the same arrays :count value
         total += clearance_cart[item][:price] * clearance_cart[item][:count]
     #Conditional: If the total amounts to over 100
-    # if total > 100
-    #   #then the total will be multiplied by 0.9(10%)
-    #   total = total * 0.9
+    if total > 100
+      #then the total will be multiplied by 0.9(10%)
+      total = total * 0.9
+    end
     end
   #return total
-  total > 100.00 ? (total * 0.90).round : total
+  total 
 end
