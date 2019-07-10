@@ -6,7 +6,7 @@ def consolidate_cart(cart)
   cart.each do |hash|
 #create a keys variable == to the cart's item names(keys)
     keys = hash.keys
-#iterate over the keys 
+#iterate over the keys
       keys.each do |k|
 #create a variable for the values of each key
       v = hash[k]
