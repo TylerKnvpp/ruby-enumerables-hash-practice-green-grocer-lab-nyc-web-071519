@@ -104,5 +104,5 @@ def checkout(cart, coupons)
     end
     end
   #return total
-  total 
+  total
 end
