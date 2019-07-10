@@ -86,9 +86,9 @@ end
 
 def checkout(cart, coupons)
   #created a variable - my_cart == to calling the consolidated_cart method on the cart array
-    new_cart = consolidated_cart(cart)
+    my_cart = consolidated_cart(cart)
   #created the variable cart_with_coupons_applied set == the apply_coupons methods taking in my_cart and the coupons array
-      cart_with_coupons_applied = apply_coupons(new_cart, coupons)
+      cart_with_coupons_applied = apply_coupons(my_cart, coupons)
     #created the variable cart_with_discounts_applied == the apply_clearance method taking in the cart_with_coupons_applied array
         cart_with_discounts_applied = apply_clearance(cart_with_coupons_applied)
       #created a variable - total == 0.0
