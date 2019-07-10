@@ -94,7 +94,7 @@ def checkout(cart, coupons)
       #created a variable - total == 0.0
         total = 0.0
         #iterating over the keys of the clearance_cart array
-        clearance_cart.keys.do |item|
+        clearance_cart.keys.each do |item|
         #total = the sum of the clearance_cart value :price mutliplied by the same arrays :count value
         total += clearance_cart[item][:price] * clearance_cart[item][:count]
     #Conditional: If the total amounts to over 100
