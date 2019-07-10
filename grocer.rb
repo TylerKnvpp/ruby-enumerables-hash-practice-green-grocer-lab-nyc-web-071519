@@ -70,13 +70,13 @@ end
 #create a method that takes in an array of items
 def apply_clearance(cart)
 #create a variable == to cart
-  new_cart = cart
+  my_cart = cart
 #iterate over the new cart array
-  new_cart.each do |k,v|
+  my_cart.each do |key,value|
 #conditional: if an item within the new cart of arrays has a :clearance value
-    if new_cart[k][:clearance]
+    if my_cart[key][:clearance]
 #update the item's price by multiplying by .8 then rounding the decimal to the second spot
-      new_cart[k][:price] = (new_cart[k][:price] * 0.8).round(2)
+      my_cart[key][:price] = (my_cart[key][:price] * 0.8).round(2)
     end
   end
 #return cart
