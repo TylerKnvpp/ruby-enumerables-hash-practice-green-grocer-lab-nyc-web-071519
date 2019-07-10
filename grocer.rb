@@ -1,4 +1,4 @@
-#created a method that takes an array as a parameter 
+#created a method that takes an array of hashes as a parameter
 def consolidate_cart(cart)
   #create an empty hash for the updated cart
   my_cart = {}
@@ -32,23 +32,53 @@ def consolidate_cart(cart)
     my_cart
   end
 
+
+#created a method that takes 2 arrays of hashes
   def apply_coupons(cart, coupons)
+#iterate over the coupons array
     coupons.each do |coupon|
+#conditional: if any of the keys of items in the cart array == item in the coupon array
       if cart.keys.any? coupon[:item]
+#secondary-conditional: if the cart/coupon :count value is greater than or equal to the coupon :num value
         if cart[coupon[:item]][:count] >= coupon[:num]
+#then create a variable within the cart array for the discounted product which is == :item within the coupons array
           discounted_product = "#{coupon[:item]} W/COUPON"
+#tertiary condiitonal: if there is a discounted product within the cart array
           if cart[discounted_product]
+#then the :count value of the discounted product is added from the coupon :num value
             cart[discounted_product][:count] += coupon[:num]
           else
+#otherwise, the discounted product's values within the cart array are == to the following
             cart[discounted_product] = {
+            #count: is == the corresponding coupon's :num value
               count: coupon[:num],
+            #price: is == the corresponding coupon's :cost value divided by the coupon's :num value
               price: coupon[:cost]/coupon[:num],
+            #clearance: is added from the cart array's item value :clearance
               clearance: cart[coupon[:item]][:clearance]
             }
           end
+#Finally, if coupon was applied to an item(s) reduce the item's :count value by the coupon's :num v
           cart[coupon[:item]][:count] -= coupon[:num]
         end
       end
     end
+#return cart
     cart
+end
+
+#create a method that takes in an array of items
+def apply_clearance(cart)
+#create a variable == to cart
+  new_cart = cart
+#iterate over the new cart array
+  new_cart.each do |k,v|
+#conditional: if an item within the new cart of arrays has a :clearance value
+    if new_cart[k][:clearance]
+#update the item's price by multiplying by .8 then rounding the decimal to the second spot
+      new_cart[k][:price] = (new_cart[k][:price] * 0.8).round(2)
+    end
   end
+#return cart
+  new_cart
+end
