@@ -1,7 +1,7 @@
+#created a method that takes an array as a parameter 
 def consolidate_cart(cart)
   #create an empty hash for the updated cart
   my_cart = {}
-
 #iterate over the cart to create the new hash
   cart.each do |hash|
 #create a keys variable == to the cart's item names(keys)
@@ -24,7 +24,7 @@ def consolidate_cart(cart)
 #sets the item in the updated cart == to the value
           my_cart[k] = v
         end
-#output item: values
+#output "items: values"
         puts "#{k}: #{my_cart[k]}"
       end
     end
